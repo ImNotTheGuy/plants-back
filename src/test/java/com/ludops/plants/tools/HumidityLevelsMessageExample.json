@@ -1,0 +1,21 @@
+{
+  "message_id": "3412312AAAfff00",
+  "sensors": [
+    {
+      "plant_number": 1,
+      "value": 0.41
+    },
+    {
+      "plant_number": 2,
+      "value": 0.43
+    },
+    {
+      "plant_number": 3,
+      "value": 0.28
+    },
+    {
+      "plant_number": 4,
+      "value": 0.22
+    }
+  ]
+}
