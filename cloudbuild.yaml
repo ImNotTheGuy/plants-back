@@ -13,7 +13,7 @@ steps:
       - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
       - '--region'
       - 'europe-west3'
-  options:
-  - logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
 images:
   - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
