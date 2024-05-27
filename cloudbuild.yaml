@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/ludops/plants-back:$COMMIT_SHA', '.']  # Replace 'my-app-image' with your image name
+    args: ['build', '-t', 'gcr.io/ludops/plants-back:$COMMIT_SHA', '.','--build-arg FRONTEND_URL=', '$_FRONTEND_URL']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/ludops/plants-back:$COMMIT_SHA']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -8,7 +8,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'plants-back'  # Replace with your Cloud Run service name
+      - 'plants-back'
       - '--image'
       - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
       - '--region'
