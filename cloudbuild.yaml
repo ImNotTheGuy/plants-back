@@ -13,8 +13,5 @@ steps:
       - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
       - '--region'
       - 'europe-west3'
-      - '--platform'
-      - 'managed'
-      - '--allow-unauthenticated'  # or configure authentication as needed
 images:
   - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
