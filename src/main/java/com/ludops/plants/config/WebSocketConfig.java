@@ -11,7 +11,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-    @Value("websocket.frontend.url")
+    @Value("${websocket.frontend.url}")
     private String websocketUrl;
 
     @Override
