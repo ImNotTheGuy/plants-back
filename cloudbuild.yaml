@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/ludops/github.com/imnottheguy/plants-back:$COMMIT_SHA', '.']  # Replace 'my-app-image' with your image name
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/ludops/plants-back:$COMMIT_SHA']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'plants-back'  # Replace with your Cloud Run service name
+      - '--image'
+      - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
+      - '--region'
+      - 'europe-west3'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'  # or configure authentication as needed
+images:
+  - 'gcr.io/ludops/plants-back:$COMMIT_SHA'
