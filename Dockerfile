@@ -6,7 +6,7 @@ COPY src ./src
 COPY pom.xml .
 RUN mvn package
 
-FROM openjdk:21-alpine
+FROM openjdk:21-jdk
 
 ARG FRONTEND_URL
 WORKDIR /app
