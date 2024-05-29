@@ -1,5 +1,6 @@
 package com.ludops.plants.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -9,6 +10,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker
+@Slf4j
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Value("${websocket.frontend.url}")
@@ -22,6 +24,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints (StompEndpointRegistry registry) {
+        log.info("Allowing origins for url : " + websocketUrl);
         registry.addEndpoint("/ws-endpoint").setAllowedOrigins(websocketUrl).withSockJS();
     }
 }
