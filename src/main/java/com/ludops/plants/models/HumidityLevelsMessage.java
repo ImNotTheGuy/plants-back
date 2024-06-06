@@ -16,6 +16,8 @@ public class HumidityLevelsMessage {
 
     @JsonProperty("message_id")
     private String id;
+    @JsonProperty("title")
+    private String title;
     @JsonProperty("sensors")
     private List<HumiditySensor> sensors;
 
